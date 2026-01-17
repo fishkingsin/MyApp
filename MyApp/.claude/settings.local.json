@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "WebSearch",
-      "WebFetch(domain:sarunw.com)",
-      "WebFetch(domain:www.hackingwithswift.com)"
-    ]
-  }
-}

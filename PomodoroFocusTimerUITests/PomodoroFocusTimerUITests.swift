@@ -1,13 +1,13 @@
 //
-//  MyAppUITests.swift
-//  MyAppUITests
+//  PomodoroFocusTimerUITests.swift
+//  PomodoroFocusTimerUITests
 //
 //  Created by James Kong on 11/1/2026.
 //
 
 import XCTest
 
-final class MyAppUITests: XCTestCase {
+final class PomodoroFocusTimerUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

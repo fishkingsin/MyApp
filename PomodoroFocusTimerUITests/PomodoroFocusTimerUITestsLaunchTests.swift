@@ -1,13 +1,13 @@
 //
-//  MyAppUITestsLaunchTests.swift
-//  MyAppUITests
+//  PomodoroFocusTimerUITestsLaunchTests.swift
+//  PomodoroFocusTimerUITests
 //
 //  Created by James Kong on 11/1/2026.
 //
 
 import XCTest
 
-final class MyAppUITestsLaunchTests: XCTestCase {
+final class PomodoroFocusTimerUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

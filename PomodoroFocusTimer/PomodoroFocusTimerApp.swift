@@ -52,12 +52,12 @@ struct PomodoroFocusTimerApp: App {
             let granted = try await UNUserNotificationCenter.current()
                 .requestAuthorization(options: [.alert, .sound, .badge])
             if granted {
-                print("Notification permissions granted")
+                debugPrint("Notification permissions granted")
             } else {
-                print("Notification permissions denied")
+                debugPrint("Notification permissions denied")
             }
         } catch {
-            print("Error requesting notification permissions: \(error)")
+            debugPrint("Error requesting notification permissions: \(error)")
         }
     }
 
@@ -87,14 +87,14 @@ struct PomodoroFocusTimerApp: App {
 
             for session in abandonedSessions {
                 session.status = .abandoned
-                print("⚠️ Marked session as abandoned on app launch: \(session.id)")
+                debugPrint("⚠️ Marked session as abandoned on app launch: \(session.id)")
             }
 
             if !abandonedSessions.isEmpty {
                 try modelContext.save()
             }
         } catch {
-            print("Error cleaning up abandoned sessions: \(error)")
+            debugPrint("Error cleaning up abandoned sessions: \(error)")
         }
     }
 }

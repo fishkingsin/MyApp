@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:sarunw.com)",
+      "WebFetch(domain:www.hackingwithswift.com)",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:fatbobman.com)",
+      "Bash(.specify/scripts/bash/update-agent-context.sh:*)",
+      "Bash(.specify/scripts/bash/check-prerequisites.sh:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(xcodebuild:*)"
+    ]
+  }
+}
