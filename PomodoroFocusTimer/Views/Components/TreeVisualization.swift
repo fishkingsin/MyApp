@@ -35,7 +35,7 @@ struct TreeVisualization: View {
             .foregroundColor(.green)
             .animation(.easeInOut(duration: 0.8), value: stage)
             .accessibilityIdentifier("TreeVisualization")
-            .accessibilityLabel("Tree growth stage \(stage) of 5")
+            .accessibilityLabel("樹木生長階段 \(stage) / 5")
     }
 }
 

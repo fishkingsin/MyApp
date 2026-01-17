@@ -24,11 +24,11 @@ struct StartSessionView: View {
                     .frame(width: 120, height: 120)
                     .foregroundColor(.green)
 
-                Text("Forest Focus")
+                Text("森林專注")
                     .font(.largeTitle)
                     .fontWeight(.bold)
 
-                Text("Grow your focus forest")
+                Text("培育你的專注森林")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
@@ -39,7 +39,7 @@ struct StartSessionView: View {
             Button {
                 startSession()
             } label: {
-                Text("Start Session")
+                Text("開始專注")
                     .font(.title2)
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
@@ -49,7 +49,7 @@ struct StartSessionView: View {
                     .cornerRadius(12)
             }
             .padding(.horizontal, 40)
-            .accessibilityLabel("Start 25-minute focus session")
+            .accessibilityLabel("開始 25 分鐘專注時段")
 
             Spacer()
         }

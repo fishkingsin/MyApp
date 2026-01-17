@@ -17,7 +17,7 @@ struct StatsView: View {
         NavigationStack {
             Group {
                 if isLoading {
-                    ProgressView("Loading stats...")
+                    ProgressView("載入統計資料...")
                 } else if let stats = stats {
                     ScrollView {
                         VStack(spacing: 24) {
@@ -25,39 +25,39 @@ struct StatsView: View {
 
                             // Total Trees
                             StatCard(
-                                title: "Total Trees",
+                                title: "總共樹木",
                                 value: "\(stats.totalTreesPlanted)",
                                 icon: "tree.fill",
                                 color: .green
                             )
-                            .accessibilityLabel("Total Trees: \(stats.totalTreesPlanted)")
+                            .accessibilityLabel("總共樹木：\(stats.totalTreesPlanted)")
 
                             // Total Focus Time
                             StatCard(
-                                title: "Total Focus Time",
+                                title: "總專注時間",
                                 value: stats.totalFocusTimeFormatted,
                                 icon: "clock.fill",
                                 color: .blue
                             )
-                            .accessibilityLabel("Total Focus Time: \(stats.totalFocusTimeFormatted)")
+                            .accessibilityLabel("總專注時間：\(stats.totalFocusTimeFormatted)")
 
                             // Today's Count
                             StatCard(
-                                title: "Today",
-                                value: "\(stats.todaysTreeCount) tree\(stats.todaysTreeCount == 1 ? "" : "s")",
+                                title: "今天",
+                                value: "\(stats.todaysTreeCount) 棵樹\(stats.todaysTreeCount == 1 ? "" : "")",
                                 icon: "calendar",
                                 color: .orange
                             )
-                            .accessibilityLabel("Today: \(stats.todaysTreeCount) trees")
+                            .accessibilityLabel("今天：\(stats.todaysTreeCount) 棵樹")
 
                             // Streak
                             StatCard(
-                                title: "Streak",
+                                title: "連續天數",
                                 value: stats.streakDisplay,
                                 icon: "flame.fill",
                                 color: stats.currentStreak > 0 ? .red : .gray
                             )
-                            .accessibilityLabel("Streak: \(stats.streakDisplay)")
+                            .accessibilityLabel("連續天數：\(stats.streakDisplay)")
 
                             Spacer()
                         }
@@ -65,12 +65,12 @@ struct StatsView: View {
                     }
                 } else {
                     VStack {
-                        Text("Unable to load stats")
+                        Text("無法載入統計資料")
                             .foregroundColor(.secondary)
                     }
                 }
             }
-            .navigationTitle("Stats")
+            .navigationTitle("統計")
             .task {
                 await loadStats()
             }

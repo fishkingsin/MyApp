@@ -26,7 +26,7 @@ struct CountdownDisplay: View {
         Text(timeString)
             .font(.system(size: 60, weight: .bold, design: .monospaced))
             .accessibilityIdentifier("CountdownDisplay")
-            .accessibilityLabel("\(minutes) minutes \(seconds) seconds remaining")
+            .accessibilityLabel("\(minutes) 分 \(seconds) 秒剩餘")
     }
 }
 

@@ -25,8 +25,8 @@ class NotificationService: NotificationServiceProtocol {
     // T024: Schedule notification for session completion
     func scheduleSessionCompletion(sessionID: UUID, timeInterval: TimeInterval) async {
         let content = UNMutableNotificationContent()
-        content.title = "Your tree is complete!"
-        content.body = "Great work! Your tree has been saved to your forest."
+        content.title = "你的樹木完成了！"
+        content.body = "做得好！你的樹木已儲存到森林。"
         content.sound = .default
         content.categoryIdentifier = "SESSION_COMPLETE"
 

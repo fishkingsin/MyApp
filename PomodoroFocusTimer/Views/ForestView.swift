@@ -29,11 +29,11 @@ struct ForestView: View {
                             .font(.system(size: 80))
                             .foregroundColor(.green.opacity(0.3))
 
-                        Text("No trees yet")
+                        Text("尚未有樹木")
                             .font(.title2)
                             .fontWeight(.semibold)
 
-                        Text("Complete your first focus session to grow a tree!")
+                        Text("完成你的第一次專注時段來種植樹木！")
                             .font(.body)
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
@@ -52,7 +52,7 @@ struct ForestView: View {
                                 Image(systemName: "tree.circle.fill")
                                     .font(.system(size: 50))
                                     .foregroundColor(.green)
-                                    .accessibilityLabel("Completed tree from \(tree.completedAt.formatted(date: .abbreviated, time: .omitted))")
+                                    .accessibilityLabel("完成的樹木，來自 \(tree.completedAt.formatted(date: .abbreviated, time: .omitted))")
 
                                 Text(tree.completedAt.formatted(date: .abbreviated, time: .omitted))
                                     .font(.caption2)
@@ -70,7 +70,7 @@ struct ForestView: View {
                     .padding()
                 }
             }
-            .navigationTitle("Forest")
+            .navigationTitle("森林")
             .accessibilityElement(children: .contain)
             .accessibilityIdentifier("ForestView")
         }

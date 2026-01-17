@@ -14,19 +14,19 @@ struct ContentView: View {
             // Start Session / Active Timer View
             StartSessionView()
                 .tabItem {
-                    Label("Focus", systemImage: "timer")
+                    Label("專注", systemImage: "timer")
                 }
 
             // T080: Forest View
             ForestView()
                 .tabItem {
-                    Label("Forest", systemImage: "leaf.fill")
+                    Label("森林", systemImage: "leaf.fill")
                 }
 
             // T081: Stats View
             StatsView()
                 .tabItem {
-                    Label("Stats", systemImage: "chart.bar.fill")
+                    Label("統計", systemImage: "chart.bar.fill")
                 }
         }
     }

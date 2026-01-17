@@ -19,17 +19,17 @@ struct DailyStats {
         let hours = totalFocusTimeMinutes / 60
         let minutes = totalFocusTimeMinutes % 60
         if hours > 0 {
-            return "\(hours)h \(minutes)m"
+            return "\(hours)小時 \(minutes)分"
         } else {
-            return "\(minutes)m"
+            return "\(minutes)分"
         }
     }
 
     var streakDisplay: String {
         if currentStreak == 0 {
-            return "Start your streak today!"
+            return "今天開始你的連續紀錄！"
         } else {
-            return "\(currentStreak) day\(currentStreak == 1 ? "" : "s")"
+            return "\(currentStreak) 天"
         }
     }
 }

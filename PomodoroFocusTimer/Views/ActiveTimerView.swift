@@ -49,11 +49,11 @@ struct ActiveTimerView: View {
                                 await sessionManager.pause()
                             }
                         } label: {
-                            Label("Pause", systemImage: "pause.circle.fill")
+                            Label("暫停", systemImage: "pause.circle.fill")
                                 .font(.title2)
                                 .foregroundColor(.orange)
                         }
-                        .accessibilityLabel("Pause session")
+                        .accessibilityLabel("暫停專注時段")
                     } else if sessionManager.sessionState == .paused {
                         // T051: Resume button (visible when paused)
                         Button {
@@ -61,11 +61,11 @@ struct ActiveTimerView: View {
                                 await sessionManager.resume()
                             }
                         } label: {
-                            Label("Resume", systemImage: "play.circle.fill")
+                            Label("繼續", systemImage: "play.circle.fill")
                                 .font(.title2)
                                 .foregroundColor(.green)
                         }
-                        .accessibilityLabel("Resume session")
+                        .accessibilityLabel("繼續專注時段")
                     }
 
                     // T061: Cancel button (visible when active or paused)
@@ -73,11 +73,11 @@ struct ActiveTimerView: View {
                         Button {
                             showingCancelConfirmation = true
                         } label: {
-                            Label("Cancel", systemImage: "xmark.circle.fill")
+                            Label("取消", systemImage: "xmark.circle.fill")
                                 .font(.title2)
                                 .foregroundColor(.red)
                         }
-                        .accessibilityLabel("Cancel session")
+                        .accessibilityLabel("取消專注時段")
                     }
                 }
                 .padding()
@@ -85,16 +85,16 @@ struct ActiveTimerView: View {
                 // T052: Visual indicator when paused
                 if sessionManager.sessionState == .paused {
                     VStack(spacing: 8) {
-                        Text("Paused")
+                        Text("已暫停")
                             .font(.headline)
                             .foregroundColor(.orange)
 
-                        Text("Timer is frozen")
+                        Text("計時器已凍結")
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
                 } else {
-                    Text("Session in progress...")
+                    Text("專注進行中...")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
@@ -124,22 +124,22 @@ struct ActiveTimerView: View {
             debugPrint("ActiveTimerView appeared - State: \(sessionManager.sessionState), Remaining: \(sessionManager.remainingSeconds), Stage: \(sessionManager.treeGrowthStage)")
         }
         // T062-T063: Confirmation dialog
-        .alert("Quitting will kill your tree. Are you sure?", isPresented: $showingCancelConfirmation) {
-            Button("Yes, Quit", role: .destructive) {
+        .alert("放棄將會摧毀你的樹木。確定嗎？", isPresented: $showingCancelConfirmation) {
+            Button("是，放棄", role: .destructive) {
                 Task {
                     await sessionManager.cancel()
                     // T064: Dismiss the view
                     dismiss()
                 }
             }
-            .accessibilityLabel("Yes, quit and kill tree")
+            .accessibilityLabel("是，放棄並摧毀樹木")
 
-            Button("No, Keep Going", role: .cancel) {
+            Button("否，繼續", role: .cancel) {
                 // Dialog dismisses automatically
             }
-            .accessibilityLabel("No, keep going with session")
+            .accessibilityLabel("否，繼續專注時段")
         } message: {
-            Text("Your progress will not be saved.")
+            Text("你的進度將不會被儲存。")
         }
     }
 
