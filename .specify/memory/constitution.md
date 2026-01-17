@@ -1,4 +1,4 @@
-# MyApp Constitution
+# PomodoroFocusTimer Constitution
 
 <!--
 Sync Impact Report:
@@ -22,11 +22,12 @@ Follow-up TODOs: None
 
 ### I. Radical Simplicity & Offline-First
 
-MyApp MUST remain radically simple, embodying the Forest focus app philosophy: minimal UI, essential features only, zero complexity creep. The app MUST function completely offline—no network requests, no cloud sync, no external dependencies. All data persists locally using SwiftUI's native persistence mechanisms (UserDefaults for simple state, CoreData or file-based storage for complex data).
+PomodoroFocusTimer MUST remain radically simple, embodying the Forest focus app philosophy: minimal UI, essential features only, zero complexity creep. The app MUST function completely offline—no network requests, no cloud sync, no external dependencies. All data persists locally using SwiftUI's native persistence mechanisms (UserDefaults for simple state, CoreData or file-based storage for complex data).
 
 **Rationale**: Users choose focus apps to escape digital complexity and distractions. Network dependencies introduce latency, failure modes, privacy concerns, and cognitive overhead. Offline-first ensures reliability, speed, privacy, and zero distractions.
 
 **Non-Negotiable Rules**:
+
 - NO feature additions without removing equivalent complexity elsewhere
 - NO network requests or external service integrations
 - NO user accounts, authentication, or cloud sync
@@ -42,6 +43,7 @@ All code changes MUST follow strict Test-Driven Development: write tests → tes
 **Rationale**: TDD prevents regression bugs, documents intended behavior, forces simple interfaces, and ensures requirements clarity before implementation investment. For a focus app, reliability is paramount—bugs break user trust and destroy the calm experience.
 
 **Non-Negotiable Rules**:
+
 - Tests MUST be written before implementation code
 - Tests MUST fail initially (red phase required)
 - Implementation proceeds only after test failures are confirmed
@@ -58,6 +60,7 @@ All animations and UI interactions MUST maintain 60 frames per second (16.67ms p
 **Rationale**: Smooth animations are essential to the calm, focused experience. Janky UI creates stress and breaks user immersion. A focus app must feel fluid and responsive to support flow states.
 
 **Non-Negotiable Rules**:
+
 - All SwiftUI animations MUST profile at 60fps using Instruments
 - No main thread blocking operations (network, disk I/O, heavy computation)
 - Use background queues for any work exceeding 10ms
@@ -73,6 +76,7 @@ App MUST launch to interactive state in under 2 seconds from cold start on the m
 **Rationale**: Fast launch removes friction from focus sessions. Users should tap the icon and immediately begin working. Slow launches create abandonment and break the intention to focus.
 
 **Non-Negotiable Rules**:
+
 - Cold start MUST complete in <2 seconds (tap to interactive)
 - Measure with Instruments App Launch template on minimum device
 - Defer non-critical initialization until after first screen renders
@@ -88,6 +92,7 @@ All UI elements MUST be fully accessible via VoiceOver with clear, descriptive l
 **Rationale**: Focus tools should serve all users, including those with visual impairments or who prefer larger text. Accessibility is both a legal requirement and a moral obligation. Well-labeled UI also improves testability and UI test automation.
 
 **Non-Negotiable Rules**:
+
 - Every interactive element MUST have an accessibility label
 - VoiceOver navigation MUST be logical (top-to-bottom, left-to-right)
 - Custom controls MUST use accessibility traits (button, header, etc.)
@@ -101,34 +106,38 @@ All UI elements MUST be fully accessible via VoiceOver with clear, descriptive l
 
 **Gate**: All features MUST meet these performance benchmarks before code review approval.
 
-| Metric | Target | Measurement Tool |
-|--------|--------|------------------|
-| Cold Start | <2s | Instruments App Launch |
-| Animation Framerate | 60fps | Instruments Core Animation |
-| View Render Time | <16ms | SwiftUI View Body profiling |
-| Memory Usage (Idle) | <50MB | Instruments Allocations |
-| Battery Impact | Low | Xcode Energy Gauge |
+| Metric              | Target | Measurement Tool            |
+| ------------------- | ------ | --------------------------- |
+| Cold Start          | <2s    | Instruments App Launch      |
+| Animation Framerate | 60fps  | Instruments Core Animation  |
+| View Render Time    | <16ms  | SwiftUI View Body profiling |
+| Memory Usage (Idle) | <50MB  | Instruments Allocations     |
+| Battery Impact      | Low    | Xcode Energy Gauge          |
 
 ## Development Workflow
 
 **Gate**: All code changes MUST follow this workflow without exception.
 
 1. **Write Tests** (Red Phase)
+
    - Draft test cases covering happy path, edge cases, errors
    - Tests MUST compile and fail (red phase)
    - Get test approval from team/stakeholder before implementation
 
 2. **Implement Feature** (Green Phase)
+
    - Write minimal code to make tests pass
    - No gold-plating or speculative features
    - Tests MUST pass (green phase)
 
 3. **Refactor** (Blue Phase)
+
    - Improve code clarity and structure
    - Tests MUST remain passing
    - Profile performance if animation or launch-time code
 
 4. **Accessibility & Performance Validation**
+
    - Run VoiceOver through all new screens
    - Test Dynamic Type at Extra Large size
    - Profile with Instruments if performance-critical
@@ -145,17 +154,20 @@ All UI elements MUST be fully accessible via VoiceOver with clear, descriptive l
 **Constitution Authority**: This constitution supersedes all other development practices, team preferences, and external style guides. When conflicts arise, constitution principles take precedence.
 
 **Amendment Process**:
+
 - Amendments require written proposal with rationale
 - Breaking changes (removing/weakening principles) require team consensus
 - Additions (new principles) require demonstration of need via incident retrospective or blocked feature
 - All amendments MUST update this document and increment version per semantic versioning
 
 **Versioning Policy**:
+
 - **MAJOR**: Backward incompatible changes (removing principles, weakening requirements)
 - **MINOR**: New principles or sections added, material expansions
 - **PATCH**: Clarifications, typo fixes, non-semantic improvements
 
 **Compliance Enforcement**:
+
 - All PRs MUST verify compliance with constitution principles
 - Code reviewers MUST reject PRs violating constitution without exception
 - Constitution violations discovered post-merge MUST be reverted or fixed immediately
@@ -163,6 +175,7 @@ All UI elements MUST be fully accessible via VoiceOver with clear, descriptive l
 - Use CLAUDE.md for runtime development guidance specific to this iOS project
 
 **Complexity Justification**:
+
 - Any feature adding complexity MUST document justification in plan.md Complexity Tracking table
 - Simpler alternatives MUST be considered and explicitly rejected with reasoning
 - Default answer to "Should we add this?" is NO unless essential to focus experience

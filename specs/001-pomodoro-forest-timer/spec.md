@@ -130,6 +130,7 @@ A user wants to see their progress over time. They navigate to the forest view a
 - **FR-020**: System MUST NOT support multiple tree species or visual variations (single tree type)
 - **FR-021**: System MUST NOT include Apple Watch companion app or widgets (out of scope)
 - **FR-022**: System MUST NOT include sharing features (out of scope)
+- **FR-023**: System MUST show in-app completion message when notification permission is denied
 
 ### Key Entities
 
@@ -142,16 +143,16 @@ A user wants to see their progress over time. They navigate to the forest view a
 
 ### Measurable Outcomes
 
-- **SC-001**: Users can start a focus session and see the countdown begin within 1 second of tapping "Start"
+- **SC-001**: Users can start a focus session and see the countdown begin within 1 second (p95) of tapping "Start"
 - **SC-002**: Users can complete a 25-minute session and have the tree saved to their forest with 100% reliability (no data loss)
 - **SC-003**: Background timing is accurate to within ±5 seconds over a 25-minute period (no drift)
-- **SC-004**: Forest view can display 100+ trees without frame rate dropping below 60fps
+- **SC-004**: Forest view can display 200 trees without frame rate dropping below 60fps
 - **SC-005**: App cold start (launch to interactive state) completes in under 2 seconds
 - **SC-006**: Local notifications fire within 2 seconds of session completion when app is backgrounded
 - **SC-007**: Tree growth animations remain smooth (60fps) throughout all 5 stages
 - **SC-008**: Pause/resume actions take effect within 0.5 seconds (no lag)
 - **SC-009**: Stats (total trees, focus time, streak) update instantly (within 0.5 seconds) after session completion
-- **SC-010**: Users can complete 20 sessions per day without performance degradation
+- **SC-010**: Users can complete 20 sessions per day (3x expected daily average of 6-8 sessions) without performance degradation
 - **SC-011**: All session data persists across app restarts (100% local data reliability)
 - **SC-012**: Streak calculation is accurate for 30+ consecutive days (no off-by-one errors at day boundaries)
 
@@ -159,7 +160,7 @@ A user wants to see their progress over time. They navigate to the forest view a
 
 - Users understand the Pomodoro Technique (25-minute focused work intervals)
 - Users have granted notification permissions (if denied, in-app completion message suffices)
-- Device is iOS 15+ (target minimum iOS version aligned with SwiftUI best practices)
+- Device is iOS 17+ (required for SwiftData, target minimum iOS version)
 - Users' device clocks are reasonably accurate (not intentionally manipulated)
 - "Today" is defined by device local timezone (midnight-to-midnight in user's location)
 - Tree growth stages are evenly distributed (0%, 25%, 50%, 75%, 100% = stages 1-5)
